@@ -5,11 +5,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.board.service.BoardService;
 import com.common.api.dao.ApiDAO;
 import com.common.api.service.ApiService;
 
 @Service("boardService")
-public class BoardServiceImpl implements ApiService {
+public class BoardServiceImpl implements BoardService {
 
 	@Autowired
 	ApiDAO apiDAO;

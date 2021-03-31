@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.common.api.service.ApiService;
 
-@Repository("loginDAO")
-public class LoginDAO {
+@Repository("authDAO")
+public class AuthDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
@@ -26,14 +26,6 @@ public class LoginDAO {
 
 	public int updateUser(Map map) throws Exception {
 		return sqlSession.update("com.common.login.dao.MemberDao.updateUser", map);
-	}
-
-	public int userLogin(Map map) throws Exception {
-		return sqlSession.selectOne("com.common.login.dao.MemberDao.updateUser", map);
-	}
-
-	public int userLoginCnt(Map map) {
-		return sqlSession.selectOne("com.common.login.dao.MemberDao.userLoginCnt", map);
 	}
 	
 }

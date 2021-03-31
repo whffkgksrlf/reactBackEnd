@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 public interface LoginService {
-
+	
 	public Map userLogin(Map map) throws Exception;
+
+	public Map userCheck(Map map) throws Exception;
 	
 }
 

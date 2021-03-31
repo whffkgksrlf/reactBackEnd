@@ -2,20 +2,28 @@ package com.common.login.contoller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.common.login.service.LoginService;
 import com.common.login.service.MemberService;
 
-@Controller
-@RequestMapping(value="/")
+@RestController
 public class LoginController {
 	
     @Autowired
@@ -62,18 +70,23 @@ public class LoginController {
         return "login/denied";
     }
     
-	@RequestMapping( value="/login", method = RequestMethod.POST)
+	@RequestMapping( value="/api/auth/login", method = RequestMethod.POST)
 	@ResponseBody
-	public String login(Map map) throws Exception{
+	public Map login(@RequestBody Map map) throws Exception{
 		
-		Map test = loginService.userLogin(map);
-		
-		//Map testMap = apiService.updateUser(map);
-		
-		return "api return : test" ;
+		Map testMap = loginService.userLogin(map);
+		return testMap ;
 	}
-
-    
+	
+	@RequestMapping( value="/api/auth/check", method = RequestMethod.GET)
+	@ResponseBody
+	public Map userCheck(@RequestBody Map map) throws Exception{
+		
+		Map testMap = loginService.userCheck(map);
+		return null ;
+	}
+	
+	
     
 	
 }
