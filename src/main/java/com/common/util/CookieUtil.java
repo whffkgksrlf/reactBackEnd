@@ -17,7 +17,7 @@ import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
-public class JwtUtil {
+public class CookieUtil {
 
 	private static final String SECRET_KEY = "PRIVATE_KEY";  //TODO Key는 하드코딩 하지말고 외부에서 가져오는것을 권장
     
