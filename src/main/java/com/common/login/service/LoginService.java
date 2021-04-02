@@ -16,6 +16,8 @@ public interface LoginService {
 	public Map userCheck(Map map) throws Exception;
 	
 	public UserDetails loadUserByUsername(String username) throws Exception;
+
+	public Map insertUser(Map map) throws Exception;
 	
 }
 

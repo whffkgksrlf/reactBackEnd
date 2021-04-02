@@ -82,6 +82,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 //                }
 //            }
         
+           
+            
         }catch(Exception e){
         	//임시로 로그인 정보가 없을경우 에러 처리한다.
         	throw new ServletException(); 

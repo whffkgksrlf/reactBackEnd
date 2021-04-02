@@ -70,6 +70,12 @@ public class LoginServiceImpl implements LoginService {
         }
     }
 
+	@Override
+	public Map insertUser(Map map) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
 
 

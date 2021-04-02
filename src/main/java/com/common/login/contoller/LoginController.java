@@ -100,10 +100,26 @@ public class LoginController {
 	
 	@RequestMapping( value="/api/auth/check", method = RequestMethod.GET)
 	@ResponseBody
-	public Map userCheck2( Map map, HttpServletRequest httpServletRequest) throws Exception{
+	public Map userCheck( Map map, HttpServletRequest httpServletRequest) throws Exception{
 		
 		Map testMap = loginService.userCheck(map);
 		return testMap ;
+	}
+	
+	@RequestMapping( value="/api/auth/register", method = RequestMethod.POST)
+	@ResponseBody
+	public Map userRegister(@RequestBody Map map, HttpServletResponse response) throws Exception{
+		
+		Map loginMap = loginService.userLogin(map);
+		
+		Cookie cookieToken = new Cookie("loginToken", loginMap.get("loginToken").toString());
+		cookieToken.setPath("/");
+		cookieToken.setHttpOnly(true);
+		cookieToken.setMaxAge(1800);
+		
+		response.addCookie(cookieToken);
+		
+		return loginMap;
 	}
 	
 	
