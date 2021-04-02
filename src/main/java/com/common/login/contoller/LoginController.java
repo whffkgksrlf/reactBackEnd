@@ -92,7 +92,7 @@ public class LoginController {
 		cookieToken.setPath("/");
 		cookieToken.setHttpOnly(true);
 		cookieToken.setMaxAge(1800);
-		
+		 
 		response.addCookie(cookieToken);
 		
 		return loginMap;
